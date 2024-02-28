@@ -26,7 +26,7 @@ class BirthRateSlider: UIView {
         slider = CustomSlider()
         slider.minimumValue = 0
         slider.maximumValue = 10
-        slider.value = 6 // 默认值
+        slider.value = 1 // 默认值
         slider.isContinuous = true
         slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
         label = UILabel()

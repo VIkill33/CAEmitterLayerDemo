@@ -15,7 +15,6 @@
 		E7BB0B262B8E2D41001D10B0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E7BB0B252B8E2D41001D10B0 /* SnapKit */; };
 		E7BB0B2A2B8E3C97001D10B0 /* CAEmitterLayerControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB0B292B8E3C97001D10B0 /* CAEmitterLayerControllers.swift */; };
 		E7BB0B2C2B8E66C5001D10B0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB0B2B2B8E66C5001D10B0 /* CustomSlider.swift */; };
-		E7BB0B2E2B8E6A3C001D10B0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB0B2D2B8E6A3C001D10B0 /* Colors.swift */; };
 		E7BB0B322B8EE1E6001D10B0 /* ControllerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB0B312B8EE1E6001D10B0 /* ControllerScrollView.swift */; };
 		E7BB0B372B8F4DC5001D10B0 /* CAEmitterCellControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB0B362B8F4DC5001D10B0 /* CAEmitterCellControllers.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +43,6 @@
 		E7BB0B222B8E2804001D10B0 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BB0B292B8E3C97001D10B0 /* CAEmitterLayerControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEmitterLayerControllers.swift; sourceTree = "<group>"; };
 		E7BB0B2B2B8E66C5001D10B0 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
-		E7BB0B2D2B8E6A3C001D10B0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E7BB0B312B8EE1E6001D10B0 /* ControllerScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerScrollView.swift; sourceTree = "<group>"; };
 		E7BB0B362B8F4DC5001D10B0 /* CAEmitterCellControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEmitterCellControllers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +96,6 @@
 				E7BB0B292B8E3C97001D10B0 /* CAEmitterLayerControllers.swift */,
 				E7BB0B362B8F4DC5001D10B0 /* CAEmitterCellControllers.swift */,
 				E7BB0B2B2B8E66C5001D10B0 /* CustomSlider.swift */,
-				E7BB0B2D2B8E6A3C001D10B0 /* Colors.swift */,
 				E7BB0B312B8EE1E6001D10B0 /* ControllerScrollView.swift */,
 			);
 			path = EmitterDemo;
@@ -183,7 +180,6 @@
 			files = (
 				E7BB0B322B8EE1E6001D10B0 /* ControllerScrollView.swift in Sources */,
 				E7BB0B132B8E0244001D10B0 /* ViewController.swift in Sources */,
-				E7BB0B2E2B8E6A3C001D10B0 /* Colors.swift in Sources */,
 				E7BB0B2C2B8E66C5001D10B0 /* CustomSlider.swift in Sources */,
 				E7BB0B0F2B8E0244001D10B0 /* AppDelegate.swift in Sources */,
 				E7BB0B2A2B8E3C97001D10B0 /* CAEmitterLayerControllers.swift in Sources */,

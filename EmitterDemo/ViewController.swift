@@ -20,7 +20,6 @@ class ViewController: UIViewController, BirthRateSliderDelegate, RenderModeSelec
     private var cellSpinSlider: CellSpinSlider!
     private var cellSpinRangeSlider: CellSpinRangeSlider!
     
-    private var cell = CAEmitterCell()
     private var particleEmitter = CAEmitterLayer()
     
     lazy private var sampleLabel: UILabel = {
@@ -142,31 +141,52 @@ class ViewController: UIViewController, BirthRateSliderDelegate, RenderModeSelec
     }
     
     @objc func createParticles(sender: UIButton!) {
-        
+        particleEmitter.emitterMode = .volume
         particleEmitter.emitterPosition = CGPoint(x: view.frame.width / 2.0, y: view.frame.height / 2.0)
-        particleEmitter.emitterShape = .point
+        particleEmitter.zPosition = 10
+        particleEmitter.emitterDepth = 10
+        particleEmitter.emitterShape = .sphere
         particleEmitter.emitterSize = CGSize(width: 20, height: 20)
         particleEmitter.renderMode = .additive
+        particleEmitter.preservesDepth = true
+        particleEmitter.emitterCells = []
+        for _ in 0...10 {
+            let cell = createCell()
+            particleEmitter.emitterCells?.append(cell)
+        }
         
-        
-        cell.birthRate = 8
+        self.view.layer.addSublayer(particleEmitter)
+    }
+    
+    func createCell() -> CAEmitterCell {
+        let cell = CAEmitterCell()
+        cell.birthRate = 1
         cell.lifetime = 10.0
         cell.velocity = 300
         cell.velocityRange = 50
         cell.yAcceleration = 300
         cell.zAcceleration = 100.0
+        cell.emissionLatitude = .pi/4
         cell.emissionLongitude = .pi
         cell.spinRange = 5
-        cell.scale = 0.5
+        cell.scale = 1.0
         cell.scaleRange = 0.25
-        cell.color = UIColor.label.cgColor.copy(alpha: 0.1)
-        cell.emissionRange = .pi
+        cell.color = randomColor()
+        cell.emissionRange = .pi/2
         cell.emissionLongitude = .pi/(-2)
-        cell.alphaSpeed = -0.025
+        cell.alphaSpeed = -0.2
         cell.contents = UIImage(named: "particle")?.cgImage
-        particleEmitter.emitterCells = [cell]
-        
-        self.view.layer.addSublayer(particleEmitter)
+        return cell
+    }
+    
+    func randomColor() -> CGColor {
+        let red = UIColor.systemRed.cgColor
+        let purple = UIColor.systemPurple.cgColor
+        let blue = UIColor.systemBlue.cgColor
+        let green = UIColor.systemGreen.cgColor
+        let yellow = UIColor.systemYellow.cgColor
+        let colors = [red, purple, blue, green, yellow]
+        return colors.randomElement()!
     }
     
     func birthRateSlider(_ slider: BirthRateSlider, didChangeValue value: Float) {
@@ -219,9 +239,13 @@ class ViewController: UIViewController, BirthRateSliderDelegate, RenderModeSelec
         if let sublayers = view.layer.sublayers {
             for sublayer in sublayers {
                 if let particleEmitter = sublayer as? CAEmitterLayer {
-                    particleEmitter.emitterCells = nil
-                    action(cell)
-                    particleEmitter.emitterCells = [cell]
+                    if let tempCells = particleEmitter.emitterCells {
+                        particleEmitter.emitterCells = nil
+                        for cell in tempCells {
+                            action(cell)
+                        }
+                        particleEmitter.emitterCells = tempCells
+                    }
                     return
                 }
             }
